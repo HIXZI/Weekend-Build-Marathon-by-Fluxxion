@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation | Stellaris Travel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="sub-header">
+        <a href="planet.html" class="back-link">← Back to Details</a>
+        <h2>Expedition Booking</h2>
+    </header>
+
+    <div class="content-main">
+        <section id="booking-form" class="section page-top">
+            <h2 class="form-title">Confirm Your Journey to Aethelgard</h2>
+            <p class="description">You are one step closer to The Glimmering World! Please verify your details to secure your berth on the next available solar cycle.</p>
+            
+            <div class="form-container">
+                <form action="thankyou.html" method="POST">
+                    
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="fullname" placeholder="John Aethelgard Doe" required>
+
+                    <label for="email">Stellaris ID (Email Address)</label>
+                    <input type="email" id="email" name="email" placeholder="explorer@earth.com" required>
+
+                    <label for="package">Selected Package</label>
+                    <select id="package" name="package">
+                        <option value="observer">The Observer (7-Day)</option>
+                        <option value="deep-diver">The Deep Diver (14-Day)</option>
+                        <option value="pioneer">The Pioneer (30-Day)</option>
+                    </select>
+
+                    <label for="departure">Preferred Departure Cycle</label>
+                    <input 
+                        type="date" 
+                        id="departure" 
+                        name="departure" 
+                        placeholder="YYYY-MM-DD" 
+                        required
+                    >
+                    
+                    <p class="disclaimer">By submitting, you agree to our interstellar privacy policy.</p>
+
+                    <button type="submit" class="cta-button large-cta submit-button">Confirm Berth & Pay</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2042 Stellaris Travel Corp. | Created By: HIXZI</p>
+    </footer>
+
+</body>
+</html>
