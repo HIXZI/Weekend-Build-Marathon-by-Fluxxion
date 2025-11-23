@@ -12,7 +12,7 @@ Aethelgard is a world of stark contrasts, featuring the eternally sunlit Sunken 
 
 **Propulsion:** Detail on the Aethel-Powered Drive for fast, zero-emission travel.
 
-**Transit: **Information on the pre-flight Zero-G Training and the use of patented Cryo-Sleep Optimization pods during the 3-month subjective travel time.
+**Transit:** Information on the pre-flight Zero-G Training and the use of patented Cryo-Sleep Optimization pods during the 3-month subjective travel time.
 
 **On-World Travel:** Showcasing Sky-Shuttles for silent, magnetic levitation between destinations.
 
