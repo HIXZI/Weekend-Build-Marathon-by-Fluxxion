@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Confirmed! | Stellaris Travel</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .summary-table {
+            width: 100%;
+            max-width: 450px;
+            margin: 20px auto 40px;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        .summary-table td {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        .summary-table td:first-child {
+            color: var(--color-primary);
+        }
+    </style>
 </head>
 <body>
 
     <header class="sub-header">
-        <a href="booking.html" class="back-link">← Return to Booking</a>
+        <a href="planet.html" class="back-link">← Return to Details</a>
         <h2>Booking Successful!</h2>
     </header>
 
@@ -20,6 +36,9 @@
                 Congratulations! Your journey to Aethelgard has been successfully booked. 
                 A confirmation manifest will be sent to your email shortly.
             </p>
+
+            <div id="booking-summary"></div>
+            
             <p style="margin-top: 40px;">
                 <a href="index.html" class="cta-button large-cta">EXPLORE NEW HORIZONS (BACK TO HOME)</a>
             </p>
@@ -27,8 +46,45 @@
     </div>
 
     <footer>
-        <p>&copy; 2042 Stellaris Travel Corp. | Destination: Aethelgard</p>
+        <p>&copy; 2042 Stellaris Travel Corp. | Created By: HIXZI</p>
     </footer>
     
+    <script>
+        function displaySummary() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name') || 'Guest Explorer';
+            const pkg = urlParams.get('package') || 'Unknown Package';
+            const rawDate = urlParams.get('date') || 'TBD';
+            const cardType = urlParams.get('paymentType') || 'N/A';
+            const lastFour = urlParams.get('lastFour') || 'XXXX';
+            
+            let formattedDate = 'TBD';
+
+            if (rawDate !== 'TBD' && rawDate.includes('/')) {
+                const parts = rawDate.split('/');
+                
+                if (parts.length === 3) {
+                    const unambiguousDateString = `${parts[1]}/${parts[0]}/${parts[2]}`;
+                    
+                    const parsedDate = new Date(unambiguousDateString);
+                    if (!isNaN(parsedDate)) {
+                        formattedDate = parsedDate.toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' });
+                    }
+                }
+            }
+
+            const summaryHtml = `
+                <table class="summary-table">
+                    <tr><td>Explorer Name:</td><td>${name}</td></tr>
+                    <tr><td>Selected Package:</td><td>${pkg}</td></tr>
+                    <tr><td>Departure Date:</td><td>${formattedDate}</td></tr>
+                    <tr><td>Payment Method:</td><td>${cardType} ending in ${lastFour}</td></tr>
+                </table>
+            `;
+            document.getElementById('booking-summary').innerHTML = summaryHtml;
+        }
+
+        displaySummary();
+    </script>
 </body>
 </html>
